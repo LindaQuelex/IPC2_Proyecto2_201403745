@@ -1,0 +1,3 @@
+
+class ListaRobots():
+    pass

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<configuracion>
+    <listaCiudades>
+        <ciudad>
+            <nombre filas="4" columnas="20"> Amsterdam </nombre>
+            <fila numero="1"> "********************" </fila>
+            <fila numero="2">  “*** **            *” </fila>
+            <fila numero="3"> "*** *****E*****C****" </fila>
+            <fila numero="4"> "*** ***** ***** ***R" </fila>
+            <unidadMilitar fila="2" columna="3"> 80 </unidadMilitar>
+        </ciudad>
+    </listaCiudades>
+    <robots>
+        <robot>
+            <nombre tipo="ChapinFighter" capacidad="100">Robot01</nombre>
+        </robot>
+        <robot>
+            <nombre tipo="ChapinRescue">Robot02</nombre>
+        </robot>
+        <robot>
+            <nombre tipo="ChapinFighter" capacidad="70">Robot03</nombre>
+        </robot>
+    </robots>
+</configuracion>

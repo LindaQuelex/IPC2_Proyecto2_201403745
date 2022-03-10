@@ -1,0 +1,2 @@
+class ListaCiudades():
+    pass
