@@ -6,4 +6,8 @@ class NodoRobot():
         self.siguiente=None
         self.anterior=None
         self.size=0
+        self.up=None
+        self.down=None
+        self.right= None
+        self.left=None
         
