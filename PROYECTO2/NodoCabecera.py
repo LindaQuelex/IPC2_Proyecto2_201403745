@@ -1,6 +1,9 @@
 
 
 
+from ListaMilitares import ListaMilitares
+
+
 class NodoCabecera():
     def __init__(self,clasificacioncelda, estado,valoracion):
         self.clasificacioncelda=clasificacioncelda
@@ -13,4 +16,5 @@ class NodoCabecera():
         self.right=None
         self.left=None
         self.size=0
+        self.listamilitares=ListaMilitares()
       
