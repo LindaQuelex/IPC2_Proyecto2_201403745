@@ -45,6 +45,7 @@ def elementTree(ruta):
                         columnamilitar=nombre.attrib['columna']
                     contadortres+=1
                 contadordos+=1
+                #insertar en listas y matrizdispersa
         if listaciudadesorobots.tag=="robots":
             contadorcuatro=0
             for robots in listaciudadesorobots:
