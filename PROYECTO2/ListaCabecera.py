@@ -47,7 +47,7 @@ class ListaCabecera():
         while tmp!= None:
             if id==tmp.id:
                 return tmp
-            tmp.siguiente
+            tmp=tmp.siguiente
         return None
 
     
