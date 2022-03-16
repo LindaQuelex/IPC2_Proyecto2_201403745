@@ -1,39 +1,63 @@
 digraph G{
-    node[shape=box, width=0.7, height=0.7, fontname="Arial", fillcolor="white", style=filled]
+    node[shape=box, width=0.7, height=0.7, color="white" fontname="Arial", fillcolor="white", style=filled]
     edge[style = "bold"]
-    node[label = "capa:" fillcolor="darkolivegreen1" pos = "-1,1!"]raiz;label = "
-MATRIZ DISPERSA" 
+    node[label = "Ciudad" fillcolor="cornsilk" pos = "-1,1!"]raiz;label = "
+Celdas de Malla ChapinEyes" 
 fontname="Arial Black" 
-fontsize="25pt" 
+fontsize="16pt" 
 
                     
 
-	node[label = "F1" fillcolor="azure3" pos="-1,-0!" shape=box]x1;
-	node[label = "F2" fillcolor="azure3" pos="-1,-1!" shape=box]x2;
-	x1->x2;
-	x1->x2[dir=back];
+	node[label = "F1" color="white" fillcolor="cornsilk" pos="-1,-0!" shape=box]x1;
+	node[label = "F2" color="white" fillcolor="cornsilk" pos="-1,-1!" shape=box]x2;
+	node[label = "F7" color="white" fillcolor="cornsilk" pos="-1,-2!" shape=box]x7;
+	node[label = "F10" color="white" fillcolor="cornsilk" pos="-1,-3!" shape=box]x10;
+	x1->x2 [color="white"];
+	x1->x2[dir=black color="white"];
+	x2->x7 [color="white"];
+	x2->x7[dir=black color="white"];
+	x7->x10 [color="white"];
+	x7->x10[dir=black color="white"];
 	raiz->x1;
-	node[label = "C2" fillcolor="azure3" pos = "0,1!" shape=box]y2;
-	node[label = "C4" fillcolor="azure3" pos = "1,1!" shape=box]y4;
-	node[label = "C5" fillcolor="azure3" pos = "2,1!" shape=box]y5;
-	y2->y4;
-	y2->y4[dir=back];
-	y4->y5;
-	y4->y5[dir=back];
-	raiz->y2;
-	node[label=" " fillcolor="white" pos="1,-0!" shape=box]i1_4;
-	node[label=" " fillcolor="white" pos="2,-0!" shape=box]i1_5;
-	i1_4->i1_5;
-	i1_4->i1_5[dir=back];
-	x1->i1_4;
-	x1->i1_4[dir=back];
-	node[label=" " fillcolor="white" pos="0,-1!" shape=box]i2_2;
-	x2->i2_2;
-	x2->i2_2[dir=back];
-	y2->i2_2;
-	y2->i2_2[dir=back];
-	y4->i1_4;
-	y4->i1_4[dir=back];
-	y5->i1_5;
-	y5->i1_5[dir=back];
+	node[label = "C4" color="white" fillcolor="cornsilk" pos = "0,1!" shape=box]y4;
+	node[label = "C5" color="white" fillcolor="cornsilk" pos = "1,1!" shape=box]y5;
+	node[label = "C8" color="white" fillcolor="cornsilk" pos = "2,1!" shape=box]y8;
+	node[label = "C10" color="white" fillcolor="cornsilk" pos = "3,1!" shape=box]y10;
+	y4->y5 [color="white"];
+	y4->y5[dir=back color ="white"];
+	y5->y8 [color="white"];
+	y5->y8[dir=back color ="white"];
+	y8->y10 [color="white"];
+	y8->y10[dir=back color ="white"];
+	raiz->y4;
+	node[label=" " color="white" fillcolor="skyblue1" pos="0,-0!" shape=box]i1_4;
+	node[label=" " color="white" fillcolor="azure3" pos="1,-0!" shape=box]i1_5;
+	node[label=" " color="white" fillcolor="black" pos="3,-0!" shape=box]i1_10;
+	i1_4->i1_5[color= "white"];
+	i1_4->i1_5[dir=back color="white"];
+	i1_5->i1_10[color= "white"];
+	i1_5->i1_10[dir=back color="white"];
+	x1->i1_4[color="white"];
+	x1->i1_4[dir=back color= "white"];
+	node[label=" " color="white" fillcolor="yellowgreen" pos="2,-1!" shape=box]i2_8;
+	x2->i2_8[color="white"];
+	x2->i2_8[dir=back color= "white"];
+	node[label=" " color="white" fillcolor="white" pos="3,-2!" shape=box]i7_10;
+	x7->i7_10[color="white"];
+	x7->i7_10[dir=back color= "white"];
+	node[label=" " color="white" fillcolor="indianred" pos="3,-3!" shape=box]i10_10;
+	x10->i10_10[color="white"];
+	x10->i10_10[dir=back color= "white"];
+	y4->i1_4[color="white"];
+	y4->i1_4[dir=back color="white"];
+	y5->i1_5[color="white"];
+	y5->i1_5[dir=back color="white"];
+	y8->i2_8[color="white"];
+	y8->i2_8[dir=back color="white"];
+	i1_10->i7_10[color="white"];
+	i1_10->i7_10[dir=back color="white"];
+	i7_10->i10_10[color="white"];
+	i7_10->i10_10[dir=back color="white"];
+	y10->i1_10[color="white"];
+	y10->i1_10[dir=back color="white"];
 }

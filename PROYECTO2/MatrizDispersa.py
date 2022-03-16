@@ -3,7 +3,7 @@ import webbrowser
 from ListaCabecera import ListaCabecera
 from NodoCabecera import NodoCabecera
 from NodoCeldaMalla  import NodoCeldaUnitariaMalla
-
+from ListaMilitares import ListaMilitares
 
 
 class MatrizDispersa():
@@ -83,25 +83,25 @@ class MatrizDispersa():
 
     def graficarNeato(self, nombre):
         contenido = '''digraph G{
-    node[shape=box, width=0.7, height=0.7, fontname="Arial", fillcolor="white", style=filled]
+    node[shape=box, width=0.7, height=0.7, color="white" fontname="Arial", fillcolor="white", style=filled]
     edge[style = "bold"]
-    node[label = "capa:''' +'''" fillcolor="darkolivegreen1" pos = "-1,1!"]raiz;'''
-        contenido += '''label = "{}" \nfontname="Arial Black" \nfontsize="25pt" \n
-                    \n'''.format('\nMATRIZ DISPERSA')
+    node[label = "Ciudad''' +'''" fillcolor="cornsilk" pos = "-1,1!"]raiz;'''
+        contenido += '''label = "{}" \nfontname="Arial Black" \nfontsize="16pt" \n
+                    \n'''.format('\nCeldas de Malla ChapinEyes')
 
         # --graficar nodos ENCABEZADO
         # --graficar nodos fila
         pivote = self.filas.primero
         posx = 0
         while pivote != None:
-            contenido += '\n\tnode[label = "F{}" fillcolor="azure3" pos="-1,-{}!" shape=box]x{};'.format(pivote.id, 
+            contenido += '\n\tnode[label = "F{}" color="white" fillcolor="cornsilk" pos="-1,-{}!" shape=box]x{};'.format(pivote.id, 
             posx, pivote.id)
             pivote = pivote.siguiente
             posx += 1
         pivote = self.filas.primero
         while pivote.siguiente != None:
-            contenido += '\n\tx{}->x{};'.format(pivote.id, pivote.siguiente.id)
-            contenido += '\n\tx{}->x{}[dir=back];'.format(pivote.id, pivote.siguiente.id)
+            contenido += '\n\tx{}->x{} [color="white"];'.format(pivote.id, pivote.siguiente.id)
+            contenido += '\n\tx{}->x{}[dir=black color="white"];'.format(pivote.id, pivote.siguiente.id)
             pivote = pivote.siguiente
         contenido += '\n\traiz->x{};'.format(self.filas.primero.id)
 
@@ -109,14 +109,14 @@ class MatrizDispersa():
         pivotey = self.columnas.primero
         posy = 0
         while pivotey != None:
-            contenido += '\n\tnode[label = "C{}" fillcolor="azure3" pos = "{},1!" shape=box]y{};'.format(pivotey.id, 
+            contenido += '\n\tnode[label = "C{}" color="white" fillcolor="cornsilk" pos = "{},1!" shape=box]y{};'.format(pivotey.id, 
             posy, pivotey.id)
             pivotey = pivotey.siguiente
             posy += 1
         pivotey = self.columnas.primero
         while pivotey.siguiente != None:
-            contenido += '\n\ty{}->y{};'.format(pivotey.id, pivotey.siguiente.id)
-            contenido += '\n\ty{}->y{}[dir=back];'.format(pivotey.id, pivotey.siguiente.id)
+            contenido += '\n\ty{}->y{} [color="white"];'.format(pivotey.id, pivotey.siguiente.id)
+            contenido += '\n\ty{}->y{}[dir=back color ="white"];'.format(pivotey.id, pivotey.siguiente.id)
             pivotey = pivotey.siguiente
         contenido += '\n\traiz->y{};'.format(self.columnas.primero.id)
 
@@ -134,43 +134,55 @@ class MatrizDispersa():
                     posy_celda += 1
                     pivotey = pivotey.siguiente
                 if pivote_celda.clasificacioncelda == '*':
-                    contenido += '\n\tnode[label="*" fillcolor="black" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
+                    contenido += '\n\tnode[label=" " color="white" fillcolor="black" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
+                        posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
+                    )
+                elif pivote_celda.clasificacioncelda == ' ':
+                    contenido += '\n\tnode[label=" " color="white" fillcolor="white" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
+                        posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
+                    )
+                elif pivote_celda.clasificacioncelda == 'E':
+                    contenido += '\n\tnode[label=" " color="white" fillcolor="yellowgreen" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
+                        posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
+                    )
+                elif pivote_celda.clasificacioncelda == 'C':
+                    contenido += '\n\tnode[label=" " color="white" fillcolor="skyblue1" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
+                        posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
+                    )
+                elif pivote_celda.clasificacioncelda == 'R':
+                    contenido += '\n\tnode[label=" " color="white" fillcolor="azure3" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
                         posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
                     )
                 else:
-                    contenido += '\n\tnode[label=" " fillcolor="white" pos="{},-{}!" shape=box]i{}_{};'.format( # pos="{},-{}!"
+                    contenido += '\n\tnode[label=" " color="white" fillcolor="indianred" pos="{},-{}!" shape=box]i{}_{};'.format( # pos="{},-{}!"
                         posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
                     ) 
                 pivote_celda = pivote_celda.right
-            
             pivote_celda = pivote.acceso
             while pivote_celda != None:
                 if pivote_celda.right != None:
-                    contenido += '\n\ti{}_{}->i{}_{};'.format(pivote_celda.coordenadaX, pivote_celda.coordenadaY,
+                    contenido += '\n\ti{}_{}->i{}_{}[color= "white"];'.format(pivote_celda.coordenadaX, pivote_celda.coordenadaY,
                     pivote_celda.right.coordenadaX, pivote_celda.right.coordenadaY)
-                    contenido += '\n\ti{}_{}->i{}_{}[dir=back];'.format(pivote_celda.coordenadaX, pivote_celda.coordenadaY,
+                    contenido += '\n\ti{}_{}->i{}_{}[dir=back color="white"];'.format(pivote_celda.coordenadaX, pivote_celda.coordenadaY,
                     pivote_celda.right.coordenadaX, pivote_celda.right.coordenadaY)
                 pivote_celda = pivote_celda.right
-        
-            contenido += '\n\tx{}->i{}_{};'.format(pivote.id, pivote.acceso.coordenadaX, pivote.acceso.coordenadaY)
-            contenido += '\n\tx{}->i{}_{}[dir=back];'.format(pivote.id, pivote.acceso.coordenadaX, pivote.acceso.coordenadaY)
+            contenido += '\n\tx{}->i{}_{}[color="white"];'.format(pivote.id, pivote.acceso.coordenadaX, pivote.acceso.coordenadaY)
+            contenido += '\n\tx{}->i{}_{}[dir=back color= "white"];'.format(pivote.id, pivote.acceso.coordenadaX, pivote.acceso.coordenadaY)
             pivote = pivote.siguiente
             posx += 1
-        
         pivote = self.columnas.primero
         while pivote != None:
             pivote_celda : NodoCeldaUnitariaMalla = pivote.acceso
             while pivote_celda != None:
                 if pivote_celda.down != None:
-                    contenido += '\n\ti{}_{}->i{}_{};'.format(pivote_celda.coordenadaX, pivote_celda.coordenadaY,
+                    contenido += '\n\ti{}_{}->i{}_{}[color="white"];'.format(pivote_celda.coordenadaX, pivote_celda.coordenadaY,
                     pivote_celda.down.coordenadaX, pivote_celda.down.coordenadaY)
-                    contenido += '\n\ti{}_{}->i{}_{}[dir=back];'.format(pivote_celda.coordenadaX, pivote_celda.coordenadaY,
+                    contenido += '\n\ti{}_{}->i{}_{}[dir=back color="white"];'.format(pivote_celda.coordenadaX, pivote_celda.coordenadaY,
                     pivote_celda.down.coordenadaX, pivote_celda.down.coordenadaY) 
                 pivote_celda = pivote_celda.down
-            contenido += '\n\ty{}->i{}_{};'.format(pivote.id, pivote.acceso.coordenadaX, pivote.acceso.coordenadaY)
-            contenido += '\n\ty{}->i{}_{}[dir=back];'.format(pivote.id, pivote.acceso.coordenadaX, pivote.acceso.coordenadaY)
+            contenido += '\n\ty{}->i{}_{}[color="white"];'.format(pivote.id, pivote.acceso.coordenadaX, pivote.acceso.coordenadaY)
+            contenido += '\n\ty{}->i{}_{}[dir=back color="white"];'.format(pivote.id, pivote.acceso.coordenadaX, pivote.acceso.coordenadaY)
             pivote = pivote.siguiente
-                
         contenido += '\n}'
         #--- se genera DOT y se procede a ecjetuar el comando
         dot = "matriz_{}_dot.txt".format(nombre)
@@ -182,13 +194,14 @@ class MatrizDispersa():
 
 
 
-matriz= MatrizDispersa()
-matriz.insertar(1,5,5,4,1)
-matriz.insertar(1,4,5,4,2)
-matriz.insertar(1,4,5,4,2)
-matriz.insertar(2,2,5,4,1)
-matriz.insertar(2,2,5,4,2)
-matriz.insertar(1,4,5,4,2)
+# matriz= MatrizDispersa()
+# matriz.insertar(1,5,'R',4,1)
+# matriz.insertar(1,4,'C',4,2)
+# matriz.insertar(2,8,'E',4,2)
+# matriz.insertar(1,10,'*','*','*')
+# matriz.insertar(7,10,' ','*','*')
+# matriz.insertar(10,10,'z','*','*')
 
-matriz.graficarNeato('Malla_Celdas_ChapinEyes')
+
+# matriz.graficarNeato('Malla_Celdas_ChapinEyes')
 
