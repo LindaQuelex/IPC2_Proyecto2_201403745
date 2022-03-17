@@ -1,57 +1,55 @@
 
 from NodoCiudad import NodoCiudad
 
-
 class ListaCiudades():
     def __init__(self):
         self.size=0
         self.primero:NodoCiudad=None
         self.ultimo =None
 
-
-    def insertar(self, nuevo :NodoCiudad):
-        self.size+=1
-        if self.primero==None:
-            self.primero =nuevo
-            self.ultimo=nuevo
+    def insertar(self, nombreciudad,row, column):
+        nuevaciudad=NodoCiudad(nombreciudad, row, column)
+        nuevaciudad.setid(self.size)
+        self.size += 1 
+        if self.primero is None:
+            self.primero=nuevaciudad
+            self.ultimo=nuevaciudad
         else:
-            if nuevo.id < self.primero.id:
-               nuevo.siguiente=self.primero
-               self.primero.anterior=nuevo
-               self.primero =nuevo
-            elif nuevo.id > self.ultimo.id:
-                self.ultimo.siguiente =nuevo
-                nuevo.anterior =self.ultimo
-                self.ultimo =nuevo
-            else:
-                tmp : NodoCiudad =self.primero
-                while tmp != None:
-                    if nuevo.id < tmp.id:
-                        nuevo.siguiente =tmp
-                        nuevo.anterior =tmp.anterior
-                        tmp.anterior.siguiente= nuevo
-                        tmp.anterior=nuevo
-                        break
-                    elif nuevo.id >tmp.id:
-                        tmp = tmp.siguiente
-                    else:
-                        break 
-         
-    def mostrar_pisos(self):
+           self.ultimo.setsiguiente(nuevaciudad)
+           self.ultimo=nuevaciudad  
+        nuevaciudad.MatrizDispersa.insertar
+        return nuevaciudad
+
+    def mostrar_ciudades(self):
         tmp=self.primero
         for i in range(self.size):
-            print('El número correlativo del piso es:','(',i,')','\n','El nombre de la ciudad es:', tmp.nombreciudad)
-            tmp.MatrizDispersa.graficarNeato()
-            tmp = tmp.siguiente
+            print(i,'Las ciudades disponibles son:', tmp.nombreciudad)
+            tmp.MatrizDispersa.graficarNeato
+            tmp = tmp.getsiguiente()
+            
+    def mostrar(self):
+        tmp=self.primero 
+        self.size+=1
+        while tmp != None:
+            print("temporal",tmp.id, tmp.nombreciudad)
+            tmp=tmp.siguiente
+    
+    def retornar_nodo(self, id):
+        aux=self.primero
+        while aux.getid()< id:
+            aux=aux.getsiguiente()
+        return aux    
 
 
 
+# ciudad= ListaCiudades()
+# ciudad.insertar('uno','2',3)
+# ciudad.insertar('dos','2',3)
+# ciudad.insertar('tres','2',3)
+# # ciudad.mostrar_ciudades()
+# ciudad.mostrar()
+# ciudad.retornar_nodo(2)
 
-Ciudad = ListaCiudades()
-Ciudad.insertar('Amsterdam')
-Ciudad.insertar('Tokyo')
-Ciudad.insertar('Guatemala')
-Ciudad.insertar('México')
-Ciudad.mostrar_pisos()
+
 
 

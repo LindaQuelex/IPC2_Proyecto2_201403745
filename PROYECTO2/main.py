@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as ET
 from ListaCiudades import ListaCiudades
 from ListaRobots import ListaRobots
+from MatrizDispersa import MatrizDispersa
 
 listaCiudades= ListaCiudades()
 listaRobots= ListaRobots()
@@ -14,6 +15,7 @@ print('¿Desea agregar otro archivo para actualizar la información del archivo 
 #si el usuario elige dos entonces hay que crear el metodo de sobreescritura para actualizar la información del archivo principal
 #cuando se actualice el archivo, enviar la ruta relativa como parámetro ruta al método de ElementTree
 
+crearlistaciudades=ListaCiudades()
 
 def elementTree(ruta):
     contador=0
@@ -30,15 +32,19 @@ def elementTree(ruta):
                         nombreciudad=nombre.text
                         filasciudad=(nombre.attrib['filas'])
                         columnasciudad=(nombre.attrib['columnas'])
+                        crearlistaciudades.insertar(nombreciudad,filasciudad,columnasciudad)
                     if nombre.tag=="fila":
                         numfilamalla=nombre.attrib['numero']
                         celdasciudad=nombre.text
                         celdaunitaria=celdasciudad
                         contadorseis=0
+                        posicióny=0
                         for celda in celdaunitaria:
-                            print(celda)
+                            #print(celda)
+                            crearlistaciudades.retornar_nodo(contador).MatrizDispersa.insertar(numfilamalla,contadorseis,celda,'none','none')
                             #insertar en matriz dispersa
                             contadorseis+=1
+                            posicióny+=1
                     if nombre.tag =="unidadMilitar":
                         capacidadmilitar=nombre.text
                         filamilitar=nombre.attrib['fila']
@@ -63,3 +69,5 @@ def elementTree(ruta):
 
 elementTree('./ENTRADAS/entrada01.xml')   
 
+crearlistaciudades.mostrar_ciudades()
+crearlistaciudades.retornar_nodo(0).MatrizDispersa.graficarNeato('Malla_Celdas')

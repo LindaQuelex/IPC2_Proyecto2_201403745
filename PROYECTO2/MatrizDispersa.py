@@ -134,7 +134,7 @@ class MatrizDispersa():
                     posy_celda += 1
                     pivotey = pivotey.siguiente
                 if pivote_celda.clasificacioncelda == '*':
-                    contenido += '\n\tnode[label=" " color="white" fillcolor="black" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
+                    contenido += '\n\tnode[label="*" color="white" fillcolor="black" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
                         posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
                     )
                 elif pivote_celda.clasificacioncelda == ' ':
@@ -142,15 +142,15 @@ class MatrizDispersa():
                         posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
                     )
                 elif pivote_celda.clasificacioncelda == 'E':
-                    contenido += '\n\tnode[label=" " color="white" fillcolor="yellowgreen" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
+                    contenido += '\n\tnode[label="E" color="white" fillcolor="yellowgreen" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
                         posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
                     )
                 elif pivote_celda.clasificacioncelda == 'C':
-                    contenido += '\n\tnode[label=" " color="white" fillcolor="skyblue1" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
+                    contenido += '\n\tnode[label="C" color="white" fillcolor="skyblue1" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
                         posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
                     )
                 elif pivote_celda.clasificacioncelda == 'R':
-                    contenido += '\n\tnode[label=" " color="white" fillcolor="azure3" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
+                    contenido += '\n\tnode[label="R" color="white" fillcolor="azure3" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
                         posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
                     )
                 else:
@@ -198,9 +198,9 @@ class MatrizDispersa():
 # matriz.insertar(1,5,'R',4,1)
 # matriz.insertar(1,4,'C',4,2)
 # matriz.insertar(2,8,'E',4,2)
-# matriz.insertar(1,10,'*','*','*')
-# matriz.insertar(7,10,' ','*','*')
-# matriz.insertar(10,10,'z','*','*')
+# matriz.insertar(1,1,'*','*','*')
+# matriz.insertar(7,11,' ','*','*')
+# matriz.insertar(10,12,'z','*','*')
 
 
 # matriz.graficarNeato('Malla_Celdas_ChapinEyes')
