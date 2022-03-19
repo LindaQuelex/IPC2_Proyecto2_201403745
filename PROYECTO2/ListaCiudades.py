@@ -38,7 +38,8 @@ class ListaCiudades():
         aux=self.primero
         while aux.getid()< id:
             aux=aux.getsiguiente()
-        return aux    
+        return aux   
+    
 
 
 
@@ -46,10 +47,11 @@ class ListaCiudades():
 # ciudad.insertar('uno','2',3)
 # ciudad.insertar('dos','2',3)
 # ciudad.insertar('tres','2',3)
-# # ciudad.mostrar_ciudades()
+# ciudad.insertar('cuatro','2',3)
+# # ciudad.mostrar_ciudades() 
 # ciudad.mostrar()
-# ciudad.retornar_nodo(2)
-
+# ciudad.retornar_nodo(1)
+# print(ciudad.retornar_nodo(0))
 
 
 

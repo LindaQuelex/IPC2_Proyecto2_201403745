@@ -41,7 +41,7 @@ def elementTree(ruta):
                         posicióny=0
                         for celda in celdaunitaria:
                             #print(celda)
-                            crearlistaciudades.retornar_nodo(contador).MatrizDispersa.insertar(numfilamalla,contadorseis,celda,'none','none')
+                            crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.insertar(numfilamalla,contadorseis,celda, 'none', 'none')
                             #insertar en matriz dispersa
                             contadorseis+=1
                             posicióny+=1
@@ -49,7 +49,8 @@ def elementTree(ruta):
                         capacidadmilitar=nombre.text
                         filamilitar=nombre.attrib['fila']
                         columnamilitar=nombre.attrib['columna']
-                    contadortres+=1
+                        crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.insertar(numfilamalla,contadorseis,celda,"none", 'none').ListaMilitares.insertar_militar(filamilitar,columnamilitar, capacidadmilitar)
+                        
                 contadordos+=1
                 #insertar en listas y matrizdispersa
         if listaciudadesorobots.tag=="robots":
@@ -71,3 +72,4 @@ elementTree('./ENTRADAS/entrada01.xml')
 
 crearlistaciudades.mostrar_ciudades()
 crearlistaciudades.retornar_nodo(0).MatrizDispersa.graficarNeato('Malla_Celdas')
+

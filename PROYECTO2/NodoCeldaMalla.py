@@ -1,3 +1,6 @@
+
+from ListaMilitares import ListaMilitares
+
 class NodoCeldaUnitariaMalla():
     def __init__(self,x,y,clasificacionceldaunitaria, estado,valoracion):
         self.coordenadaX=x
@@ -12,3 +15,4 @@ class NodoCeldaUnitariaMalla():
         self.right=None
         self.left=None
         self.size=0
+        self.ListaMilitares =ListaMilitares()

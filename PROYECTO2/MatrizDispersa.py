@@ -3,7 +3,6 @@ import webbrowser
 from ListaCabecera import ListaCabecera
 from NodoCabecera import NodoCabecera
 from NodoCeldaMalla  import NodoCeldaUnitariaMalla
-from ListaMilitares import ListaMilitares
 
 
 class MatrizDispersa():
@@ -12,9 +11,10 @@ class MatrizDispersa():
         self.columnas=ListaCabecera('Columna')
 
     def insertar(self,x,y,clasificacionceldaunitaria, estado,valoracion):
-        nuevaceldamalla=NodoCeldaUnitariaMalla(x,y,clasificacionceldaunitaria, estado,valoracion)
+        nuevaceldamalla=NodoCeldaUnitariaMalla(x,y,clasificacionceldaunitaria, estado, valoracion)
         nodox=self.filas.getCabecera(x)
         nodoy=self.columnas.getCabecera(y)
+        
         if nodox==None:
             nodox=NodoCabecera(x)
             self.filas.insertarnodocabecera(nodox)
@@ -44,6 +44,7 @@ class MatrizDispersa():
                     elif nuevaceldamalla.coordenadaX==tmp.coordenadaX and nuevaceldamalla.coordenadaY == tmp.coordenadaY:
                         print('Ya existe un nodo en esta posición de fila', nuevaceldamalla.coordenadaX, nuevaceldamalla.coordenadaY)
                         break;   
+                         
                          #aquí se debe actualizar el dato                
                     else: 
                         if tmp.right==None:
@@ -81,6 +82,10 @@ class MatrizDispersa():
                         else:
                             tmp2=tmp2.down
 
+        nuevaceldamalla.ListaMilitares.insertar_militar                   
+        return nuevaceldamalla
+        
+
     def graficarNeato(self, nombre):
         contenido = '''digraph G{
     node[shape=box, width=0.7, height=0.7, color="white" fontname="Arial", fillcolor="white", style=filled]
@@ -94,14 +99,14 @@ class MatrizDispersa():
         pivote = self.filas.primero
         posx = 0
         while pivote != None:
-            contenido += '\n\tnode[label = "F{}" color="white" fillcolor="cornsilk" pos="-1,-{}!" shape=box]x{};'.format(pivote.id, 
+            contenido += '\n\tnode[label = "F{}" color="white" fillcolor="cornsilk" pos="-1,-{}!" nodesep=0.02  ranksep=0.02 shape=box]x{};'.format(pivote.id, 
             posx, pivote.id)
             pivote = pivote.siguiente
             posx += 1
         pivote = self.filas.primero
-        while pivote.siguiente != None:
-            contenido += '\n\tx{}->x{} [color="white"];'.format(pivote.id, pivote.siguiente.id)
-            contenido += '\n\tx{}->x{}[dir=black color="white"];'.format(pivote.id, pivote.siguiente.id)
+        while pivote.siguiente!= None:
+            contenido += '\n\tx{}->x{} [color="white" nodesep=0.02  ranksep=0.02];'.format(pivote.id, pivote.siguiente.id)
+            contenido += '\n\tx{}->x{}[dir=black color="white" nodesep=0.02  ranksep=0.02];'.format(pivote.id, pivote.siguiente.id)
             pivote = pivote.siguiente
         contenido += '\n\traiz->x{};'.format(self.filas.primero.id)
 
@@ -154,7 +159,7 @@ class MatrizDispersa():
                         posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
                     )
                 else:
-                    contenido += '\n\tnode[label=" " color="white" fillcolor="indianred" pos="{},-{}!" shape=box]i{}_{};'.format( # pos="{},-{}!"
+                    contenido += '\n\tnode[label=" " color="white" fillcolor="white" pos="{},-{}!" shape=box]i{}_{};'.format( # pos="{},-{}!"
                         posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
                     ) 
                 pivote_celda = pivote_celda.right
@@ -193,6 +198,8 @@ class MatrizDispersa():
         webbrowser.open(result)
 
 
+        # pivote_celda.ListaMilitares.mostrar_militares()
+        # return pivote_celda
 
 # matriz= MatrizDispersa()
 # matriz.insertar(1,5,'R',4,1)
@@ -204,4 +211,3 @@ class MatrizDispersa():
 
 
 # matriz.graficarNeato('Malla_Celdas_ChapinEyes')
-
