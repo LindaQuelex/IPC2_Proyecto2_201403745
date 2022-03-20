@@ -32,7 +32,6 @@ fontsize="16pt"
 	node[label = "C4" color="white" fillcolor="cornsilk" pos = "4,1!" shape=box]y4;
 	node[label = "C5" color="white" fillcolor="cornsilk" pos = "5,1!" shape=box]y5;
 	node[label = "C6" color="white" fillcolor="cornsilk" pos = "6,1!" shape=box]y6;
-	node[label = "C7" color="white" fillcolor="cornsilk" pos = "7,1!" shape=box]y7;
 	y0->y1 [color="white"];
 	y0->y1[dir=back color ="white"];
 	y1->y2 [color="white"];
@@ -45,8 +44,6 @@ fontsize="16pt"
 	y4->y5[dir=back color ="white"];
 	y5->y6 [color="white"];
 	y5->y6[dir=back color ="white"];
-	y6->y7 [color="white"];
-	y6->y7[dir=back color ="white"];
 	raiz->y0;
 	node[label=" " color="white" fillcolor="white" pos="0,-0!" shape=box]i1_0;
 	node[label="*" color="white" fillcolor="black" pos="1,-0!" shape=box]i1_1;
@@ -160,7 +157,6 @@ fontsize="16pt"
 	node[label="*" color="white" fillcolor="black" pos="4,-5!" shape=box]i6_4;
 	node[label="C" color="white" fillcolor="skyblue1" pos="5,-5!" shape=box]i6_5;
 	node[label=" " color="white" fillcolor="white" pos="6,-5!" shape=box]i6_6;
-	node[label=" " color="white" fillcolor="white" pos="7,-5!" shape=box]i6_7;
 	i6_0->i6_1[color= "white"];
 	i6_0->i6_1[dir=back color="white"];
 	i6_1->i6_2[color= "white"];
@@ -173,8 +169,6 @@ fontsize="16pt"
 	i6_4->i6_5[dir=back color="white"];
 	i6_5->i6_6[color= "white"];
 	i6_5->i6_6[dir=back color="white"];
-	i6_6->i6_7[color= "white"];
-	i6_6->i6_7[dir=back color="white"];
 	x6->i6_0[color="white"];
 	x6->i6_0[dir=back color= "white"];
 	i1_0->i2_0[color="white"];
@@ -261,6 +255,4 @@ fontsize="16pt"
 	i5_6->i6_6[dir=back color="white"];
 	y6->i1_6[color="white"];
 	y6->i1_6[dir=back color="white"];
-	y7->i6_7[color="white"];
-	y7->i6_7[dir=back color="white"];
 }

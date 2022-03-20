@@ -23,7 +23,7 @@ class ListaCiudades():
     def mostrar_ciudades(self):
         tmp=self.primero
         for i in range(self.size):
-            print(i,'Las ciudades disponibles son:', tmp.nombreciudad)
+            print(i, tmp.nombreciudad)
             tmp.MatrizDispersa.graficarNeato
             tmp = tmp.getsiguiente()
             

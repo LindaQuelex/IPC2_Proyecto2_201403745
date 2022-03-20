@@ -198,6 +198,14 @@ class MatrizDispersa():
         webbrowser.open(result)
 
 
+
+    def retornar_nodo_archivo(self, id):
+        aux=self.primero
+        while aux.getid()< id:
+            aux=aux.getsiguiente()
+        return aux   
+    
+
         # pivote_celda.ListaMilitares.mostrar_militares()
         # return pivote_celda
 
