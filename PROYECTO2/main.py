@@ -1,5 +1,4 @@
 import os
-from tkinter import W
 import xml.etree.ElementTree as ET
 from ListaCiudades import ListaCiudades
 from ListaMilitares import ListaMilitares
@@ -41,7 +40,7 @@ def elementTree(ruta):
                             #print(celda)
                             #crearlistaciudades.retornar_nodo(contadordos). MatrizDispersa.insertar(numfilamalla,contadorseis,celda,'none', 'none').ListaMilitares.insertar_militar(filamilitar,columnamilitar, capacidadmilitar)
                             crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.insertar(numfilamalla,contadorseis,celda, 'none', 'none')
-                            #insertar en matriz dispersa
+                            #insertar en matriz dispersa, actualizada con los datos de los militares 
                             contadorseis+=1
                             posicióny+=1                 
                         # print(capacidadmilitar)
@@ -72,29 +71,20 @@ print('MENÚ PRINCIPAL','\n')
 question=input('¿Desea iniciar proceso?'+'\n'+'Responda: si o no'+'\n')
 
 if question=="si":
-    filename1=input("Ingrese el nombre del archivo a procesar:"+'\n')
-    relativepath1='./ENTRADAS/'+filename1
-    actualizar=input('\n'+"¿Desea agregar otro archivo para actualizar la información del archivo 1?"+'\n'+'Ingrese si o no'+'\n')
-    if actualizar=="si":
-        filename2=input("¿Ingrese el nombre del archivo 2?"+'\n')
-        relativepath2='./ENTRADAS/'+filename2
-        #actualización de archivo1 con información del archivo2 
-        #enviar al elementTree el archivo actualizado
-        print('\n'+"Las ciudades actualizadas son:")
-        #actualizar lista de robots
-    else: 
-        print('\n'+"Las ciudades disponibles son:")
-    elementTree(relativepath1)   
-
-
+    filename=input('\n'+"Ingrese el nombre del archivo a procesar:"+'\n')
+    relativepath='./ENTRADAS/'+filename
+    elementTree(relativepath)   
+    print('\n','Las ciudades disponibles son: ')
     crearlistaciudades.mostrar_ciudades()
     ciudadseleccionada=input('\n'+'Ingrese el número de la cuidad seleccionada'+'\n')
     tipomisión=input('\n'+'Ingrese el tipo de misión (seleccione 1 o 2)'+'\n'+'1. Misión de rescate'+'\n'+'2. Misión de extracción de recursos'+'\n')
-    print('\n'+'Los robots disponibles son los siguientes:'+'\n')
+    #print('\n'+'Los robots disponibles son los siguientes:'+'\n')
 
     if tipomisión=="1":
+        #agregar la validación de si existen celdas unidades civile para completar la misión
         if listaRobotsRescue.size==0:
             print('No existe robot ChapinRescue para llevar a cabo la misión')
+            print('¿Desea iniciar un nuevo proceso?')
         elif listaRobotsRescue.ultimo.getid()==0:
             print('El único robot ChapinRescue disponible es:')
             listaRobotsRescue.mostrar_robot()
@@ -109,6 +99,7 @@ if question=="si":
             #generar gráfica
             crearlistaciudades.retornar_nodo(int(ciudadseleccionada)).MatrizDispersa.graficarNeato('Misión_de_Rescate')
     elif tipomisión=="2":
+        #agregar la validación de si existen unidades de recursos
         if listaRobotsFighter.size==0:
             print('No existe robot ChapinFighter para llevar a cabo la misión')
         elif listaRobotsFighter.ultimo.getid()==0:
@@ -131,9 +122,6 @@ else:
         exit()
     else: 
         print('¿Desea iniciar un nuevo proceso?')
-        
-
-
 
 #crearlistaciudades.retornar_nodo(int(ciudadseleccionada)).MatrizDispersa.graficarNeato('Malla_Celdas')
 

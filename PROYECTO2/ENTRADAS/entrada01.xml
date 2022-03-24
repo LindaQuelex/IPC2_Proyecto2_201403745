@@ -2,7 +2,7 @@
 <configuracion>
     <listaCiudades>
         <ciudad>
-            <nombre filas="6" columnas="5"> Amsterdam </nombre>
+            <nombre filas="6" columnas="5">Amsterdam</nombre>
             <fila numero="1">"****E"</fila>
             <fila numero="2">"***  "</fila>
             <fila numero="3">"*C*R*"</fila>
@@ -12,7 +12,7 @@
             <unidadMilitar fila="2" columna="3"> 80 </unidadMilitar>
         </ciudad>
         <ciudad>
-            <nombre filas="6" columnas="5"> Seul </nombre>
+            <nombre filas="6" columnas="5">Seul</nombre>
             <fila numero="1">"****E"</fila>
             <fila numero="2">"***  "</fila>
             <fila numero="3">"*C*R*"</fila>
@@ -22,7 +22,7 @@
             <unidadMilitar fila="2" columna="3"> 50 </unidadMilitar>
         </ciudad>
         <ciudad>
-            <nombre filas="6" columnas="5"> Guatemala </nombre>
+            <nombre filas="6" columnas="5">Seul</nombre>
             <fila numero="1">"****E"</fila>
             <fila numero="2">"***  "</fila>
             <fila numero="3">"*C*R*"</fila>

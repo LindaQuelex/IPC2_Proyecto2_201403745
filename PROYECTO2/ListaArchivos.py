@@ -6,8 +6,8 @@ class ListaArchivos():
         self.primero:NodoArchivo=None
         self.ultimo =None
 
-    def insertar(self, archivo ):
-        nuevoarchivo=NodoArchivo(archivo)
+    def insertar(self, nombrearchivo ):
+        nuevoarchivo=NodoArchivo(nombrearchivo)
         nuevoarchivo.setid(self.size)
         self.size += 1 
         if self.primero is None:
@@ -22,7 +22,7 @@ class ListaArchivos():
     def mostrar_archivo(self):
         tmp=self.primero
         for i in range(self.size):
-            print(i,'Los archivos cargados son:', tmp.nombrearchivo)
+            print(i, tmp.nombrearchivo)
             #tmp.MatrizDispersa.graficarNeato
             tmp = tmp.getsiguiente()
             
