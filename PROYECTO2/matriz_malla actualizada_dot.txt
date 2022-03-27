@@ -38,7 +38,7 @@ fontsize="16pt"
 	raiz->y1;
 	node[label="*" color="white" fillcolor="black" pos="0,-0!" shape=box]i1_1;
 	node[label="C" color="white" fillcolor="skyblue1" pos="1,-0!" shape=box]i1_4;
-	node[label="R" color="white" fillcolor="indianred" pos="2,-0!" shape=box]i1_5;
+	node[label="R" color="white" fillcolor="azure3" pos="2,-0!" shape=box]i1_5;
 	i1_1->i1_4[color= "white"];
 	i1_1->i1_4[dir=back color="white"];
 	i1_4->i1_5[color= "white"];
@@ -51,7 +51,7 @@ fontsize="16pt"
 	node[label=" " color="white" fillcolor="white" pos="4,-2!" shape=box]i7_11;
 	x7->i7_11[color="white"];
 	x7->i7_11[dir=back color= "white"];
-	node[label="R" color="white" fillcolor="indianred" pos="5,-3!" shape=box]i10_12;
+	node[label="R" color="white" fillcolor="red" pos="5,-3!" shape=box]i10_12;
 	x10->i10_12[color="white"];
 	x10->i10_12[dir=back color= "white"];
 	y1->i1_1[color="white"];

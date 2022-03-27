@@ -5,3 +5,8 @@ class NodoCabecera():
         self.anterior=None
         self.acceso=None       
       
+    def getAcceso(self):
+        return self.acceso
+    
+    def setAcceso(self,nuevo_acceso):
+        self.acceso=nuevo_acceso

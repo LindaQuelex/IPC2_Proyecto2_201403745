@@ -34,6 +34,13 @@ class ListaRobots():
             aux=aux.getsiguiente()
         print(aux.nombrerobot,'--->',aux.tipodemision,'--->' ,'Capacidad:',aux.valoracion)
         return aux   
+    
+    def retornar_NombreRobotRescate(self, id):
+        aux=self.primero
+        while aux.getid()< id:
+            aux=aux.getsiguiente()
+        print(aux.nombrerobot)
+        return aux   
 
     def recorrer(self):
         if self.primero is None:

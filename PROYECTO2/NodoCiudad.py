@@ -9,6 +9,7 @@ class NodoCiudad():
         self.anterior=None
         self.id=0
         self.MatrizDispersa=MatrizDispersa()
+        
 
     def getid(self):
         return self.id

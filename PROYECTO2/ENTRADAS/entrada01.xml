@@ -13,30 +13,30 @@
         </ciudad>
         <ciudad>
             <nombre filas="6" columnas="5">Seul</nombre>
-            <fila numero="1">"****E"</fila>
+            <fila numero="1">"*E**E"</fila>
             <fila numero="2">"***  "</fila>
             <fila numero="3">"*C*R*"</fila>
             <fila numero="4">"* * *"</fila>
-            <fila numero="5">"E*** "</fila>
+            <fila numero="5">"E**R "</fila>
             <fila numero="6">"* **C"</fila>
             <unidadMilitar fila="2" columna="3"> 50 </unidadMilitar>
         </ciudad>
         <ciudad>
             <nombre filas="6" columnas="5">Seul</nombre>
-            <fila numero="1">"****E"</fila>
-            <fila numero="2">"***  "</fila>
+            <fila numero="1">"**R*E"</fila>
+            <fila numero="2">"R**  "</fila>
             <fila numero="3">"*C*R*"</fila>
             <fila numero="4">"* * *"</fila>
             <fila numero="5">"E*** "</fila>
             <fila numero="6">"* **C"</fila>
-            <unidadMilitar fila="2" columna="3"> 100 </unidadMilitar>
+                <unidadMilitar fila="2" columna="3"> 100 </unidadMilitar>
         </ciudad>
         <ciudad>
-            <nombre filas="4" columnas="20"> Tokyo </nombre>
-            <fila numero="1">"********************"</fila>
+            <nombre filas="4" columnas="20">Tokyo </nombre>
+            <fila numero="1">"*****R****E**********"</fila>
             <fila numero="2">"*** **            * "</fila>
-            <fila numero="3">"*** *****E*****C****"</fila>
-            <fila numero="4">"*** ***** ***** ***R"</fila>
+            <fila numero="3">"*** *****E*** *C****"</fila>
+            <fila numero="4">"*** ***** ***E* ***R"</fila>
             <unidadMilitar fila="1" columna="5"> 200 </unidadMilitar>
         </ciudad>
     </listaCiudades>
@@ -48,6 +48,22 @@
         <robot>
             <nombre tipo="ChapinRescue">Robot03</nombre>
         </robot>
+        <robot>
+            <nombre tipo="ChapinFighter" capacidad="1100">Robot01</nombre>
+        </robot>
+        <robot>
+            <nombre tipo="ChapinFighter" capacidad="100">Robot01</nombre>
+        </robot>
+        <robot>
+            <nombre tipo="ChapinFighter" capacidad="100">Robot05</nombre>
+        </robot>
+        <robot>
+            <nombre tipo="ChapinFighter" capacidad="100">Robot07</nombre>
+        </robot>
+
+
+
+
 
     </robots>
 </configuracion>

@@ -17,8 +17,6 @@
         <robot>
             <nombre tipo="ChapinRescue">Robot02</nombre>
         </robot>
-        <robot>
-            <nombre tipo="ChapinFighter" capacidad="70">Robot03</nombre>
-        </robot>
+
     </robots>
 </configuracion>
