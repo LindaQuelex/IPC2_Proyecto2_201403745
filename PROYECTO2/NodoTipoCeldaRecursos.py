@@ -1,16 +1,16 @@
-class NodoTipoCelda():
-    def __init__(self, tipocelda):
-        self.tipocelda=tipocelda
+class NodoCantidadCeldaRecursos():
+    def __init__(self, cantidadcelda):
+        self.cantidadcelda=cantidadcelda
         self.siguiente=None
         self.anterior=None
         self.id=0
 
-    def gettipocelda(self):
-        return self.tipocelda
+    def getcantidadelda(self):
+        return self.cantidadcelda
 
-    def settipocelda(self, tipocelda):
-        self.tipocelda= tipocelda
-
+    def settipocelda(self, cantidadacelda):
+        self.cantidadcelda= cantidadacelda
+        
     def getid(self):
         return self.id
 

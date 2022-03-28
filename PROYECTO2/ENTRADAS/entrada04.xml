@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<configuracion>
+    <listaCiudades>
+        <ciudad>
+            <nombre filas="4" columnas="2">Guatemala</nombre>
+            <fila numero="1">**</fila>
+            <unidadMilitar fila="1" columna="0"> 80 </unidadMilitar>
+            <unidadMilitar fila="1" columna="1"> 100 </unidadMilitar>
+
+        </ciudad>
+        <ciudad>
+            <nombre filas="4" columnas="20">Tokyo</nombre>
+            <fila numero="1">"ERCE"</fila>
+            <unidadMilitar fila="1" columna="2"> 80 </unidadMilitar>
+        </ciudad>
+        <ciudad>
+            <nombre filas="7" columnas="20">Manila</nombre>
+            <fila numero="1">"*RCRRCC"</fila>
+            <unidadMilitar fila="1" columna="2"> 80 </unidadMilitar>
+        </ciudad>
+    </listaCiudades>
+    <robots>
+        <robot>
+            <nombre tipo="ChapinFighter" capacidad="100">Robot01</nombre>
+        </robot>
+        <robot>
+            <nombre tipo="ChapinRescue">Robot02</nombre>
+        </robot>
+
+        <robot>
+            <nombre tipo="ChapinFighter" capacidad="70">Robot03</nombre>
+        </robot>
+    </robots>
+</configuracion>

@@ -5,7 +5,7 @@
             <nombre filas="4" columnas="20">Amsterdam</nombre>
             <fila numero="1">"********************"</fila>
             <fila numero="2">"*** **            *"</fila>
-            <fila numero="3">"*** *****E*****C****"</fila>
+            <fila numero="3">"*** *****E*C***R****"</fila>
             <fila numero="4">"*** ***** ***** ***R"</fila>
             <unidadMilitar fila="2" columna="3"> 80 </unidadMilitar>
         </ciudad>
@@ -28,7 +28,7 @@
             <fila numero="7">"*** ***** ***** ***R"</fila>
             <unidadMilitar fila="2" columna="3"> 80 </unidadMilitar>
         </ciudad>
-                <ciudad>
+        <ciudad>
             <nombre filas="6" columnas="20">New York</nombre>
             <fila numero="1">"**   ***************"</fila>
             <fila numero="2">"*** **            * "</fila>

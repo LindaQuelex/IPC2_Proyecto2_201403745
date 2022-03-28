@@ -1,4 +1,6 @@
+from ListaTipoCeldaRecursos import ListaTipoCeldaRecursos
 from MatrizDispersa import MatrizDispersa
+from ListaTipoCelda import ListaTipoCelda
 
 class NodoCiudad():
     def __init__(self,nombreciudad, row, column):
@@ -9,6 +11,8 @@ class NodoCiudad():
         self.anterior=None
         self.id=0
         self.MatrizDispersa=MatrizDispersa()
+        self.ListaTipoCelda=ListaTipoCelda()
+        self.ListaTipoCeldaRecursos=ListaTipoCeldaRecursos()
         
 
     def getid(self):
