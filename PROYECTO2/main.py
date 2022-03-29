@@ -1,6 +1,5 @@
 from tkinter import *
 from tkinter import filedialog
-
 from ListaCiudades import ListaCiudades
 import os
 import xml.etree.ElementTree as ET
@@ -8,11 +7,9 @@ from ListaRobots import ListaRobots
 from MatrizDispersa import MatrizDispersa
 from ListaTipoCelda import ListaTipoCelda
 
-
 listaRobotsRescue= ListaRobots()
 listaRobotsFighter=ListaRobots()
 crearlistaciudades=ListaCiudades()
-
 
 def elementTree(ruta):
     contador=0   #cantidad de procesos para conocer lista ciudades o robots
@@ -55,22 +52,19 @@ def elementTree(ruta):
                                 crearlistaciudades.retornar_nodo(contadordos).ListaTipoCeldaRecursos.insertar_tipo_celda_recursos(contadorrecursos)
                             elif celda==' ':
                                 contadorcamino+=1
-                            
                             crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.insertar(numfilamalla,contadorseis,celda, 'none', 'none', contadorintransitable, contadorentradas,contadorcamino,contadorrecursos,contadorcivil)
                             #crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.actualizarMilitar(1,1,100)
                             #crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.graficarNeato('prueba2')
                             contadorseis+=1
                             posicióny+=1
-                             
                     elif nombre.tag =="unidadMilitar":
                         capacidadmilitar=nombre.text
                         filamilitar=nombre.attrib['fila']
                         columnamilitar=nombre.attrib['columna'] 
-                        #crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.actualizarMilitar(filamilitar,columnamilitar,capacidadmilitar)         
+                        crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.actualizarMilitar(filamilitar,columnamilitar,capacidadmilitar)         
                         #crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.graficarNeato('prueba')
                     contadortres+=1
                 contadordos+=1
-               
         if listaciudadesorobots.tag=="robots":
             contadorcuatro=0
             for robots in listaciudadesorobots:
@@ -84,31 +78,9 @@ def elementTree(ruta):
                     elif tipodelrobot=="ChapinRescue":
                         capacidadrobot=0
                         listaRobotsRescue.insertar_robot(0,0,nombrerobot,tipodelrobot,capacidadrobot)
-                    
                     contadorcinco+=1
                 contadorcuatro+=1
         contador+=1  
-
-elementTree('ENTRADAS\entrada04.xml')
-# cc=crearlistaciudades.retornar_nodo(0).ListaTipoCelda.mostrar_tipo_celda()
-# cc2=crearlistaciudades.retornar_nodo(0).ListaTipoCelda.size #utilizar para verificar cantidad de civiles en una ciudad
-# cc1=crearlistaciudades.retornar_nodo(1).ListaTipoCelda.size
-# print('CC2:',cc2)
-# print('CC1:',cc1) 
-
-# cc=crearlistaciudades.retornar_nodo(0).ListaTipoCeldaRecursos.size
-# cc1=crearlistaciudades.retornar_nodo(1).ListaTipoCeldaRecursos.size
-# cc2=crearlistaciudades.retornar_nodo(2).ListaTipoCeldaRecursos.size
-# print(cc)
-# print(cc1)
-# print(cc2)
-
-
-
-
-
-
-
 
 print('\n','---------------------------------------------------', 'CHAPIN WARRIOS, S. A.','---------------------------------------------------')
 print('MENÚ PRINCIPAL','\n')
@@ -146,7 +118,6 @@ if question1=='si':
                     print('¡ALERTA!')
                     print('La ciudad no tiene unidades civiles para rescatar')
                     print('------------------------')
-                    #retornar a pedir la ciudad
                 elif conteociviles==1:
                     print('\n')
                     print('Existe una única unidad civil a rescatar')
@@ -188,7 +159,6 @@ if question1=='si':
                     print('¡ALERTA!')
                     print('La ciudad no tiene unidades civiles para rescatar')
                     print('------------------------')
-                    #retornar a pedir la ciudad
                 elif conteociviles==1:
                     print('\n')
                     print('Existe una única unidad civil a rescatar')
@@ -233,7 +203,48 @@ if question1=='si':
                     print('¡ALERTA!')
                     print('La ciudad no tiene recursos para extraer')
                     print('------------------------')
-                    #retornar a pedir la ciudad
+                elif conteorecursos==1:
+                    print('\n')
+                    print('Existe un único recurso a extraer')
+                    print('\n')
+                    crearlistaciudades.retornar_nodo(int(ciudadseleccionada)).MatrizDispersa.graficarNeato('Selección_Punto_Entrada')
+                    print('\n', 'Ingrese las coordenadas del punto de entrada:')
+                    filaentrada=input('Ingrese fila:'+'\n')
+                    columnaentrada=input('Ingrese columna:'+'\n')
+                    crearlistaciudades.retornar_nodo(int(ciudadseleccionada)).MatrizDispersa.graficarNeato('Misión_de_Extracción')
+                    print('.......................................')
+                    print('Tipo de misión: Extracción','\n','Recurso extraido:','x',',','y','\n','Robot utlizado:', listaRobotsFighter.ultimo.nombrerobot, '(ChapinFighter- Capacidad de combate inicial:','cap_inicial',',','Capacidad de combate final: '+'cap_final',')')
+                    print('Resultado----->Mision realizada')
+                    print('.......................................')
+                elif conteorecursos>1:
+                    crearlistaciudades.retornar_nodo(int(ciudadseleccionada)).MatrizDispersa.graficarNeato('Seleccionar_Recurso_a_Extraer')
+                    print('\n', 'Ingrese las coordenadas del recurso a extraer:')
+                    filarecurso=input('Ingrese fila:'+'\n')
+                    columnarecurso=input('Ingrese columna:'+'\n')
+                    print('\n', 'Ingrese las coordenadas del punto de entrada:')
+                    filaentrada=input('Ingrese fila:'+'\n')
+                    columnaentrada=input('Ingrese columna:'+'\n')  
+                    crearlistaciudades.retornar_nodo(int(ciudadseleccionada)).MatrizDispersa.graficarNeato('Misión_de_Extracción')
+                    print('.......................................')
+                    print('Tipo de misión: Extracción','\n','Recurso Extraido:',filarecurso,',',columnarecurso,'\n','Robot utlizado:', listaRobotsFighter.retornar_NombreRobotRescate(int(retornarrobot)).nombrerobot, '(ChapinFighter- Capacidad de combate inicial:','cap_inicial',',','Capacidad de combate final'+'cap_final',')')
+                    print('Resultado----->Mision realizada')
+                    print('.......................................') 
+            elif listaRobotsFighter.ultimo.getid()>0:
+                print('Los robots ChapinFighter disponibles son:')
+                listaRobotsFighter.mostrar_robot()
+                retornarrobot=input('\n'+'Ingrese el número de Robot seleecionado:'+'\n')
+                print('\n','El robot que realizará la misión es:')
+                listaRobotsFighter.retornar_nodo(int(retornarrobot))
+                print('\n')
+                print('Las ciudades disponibles para completar la misión son: ')
+                crearlistaciudades.mostrar_ciudades()
+                ciudadseleccionada=input('\n'+'Ingrese el número de la cuidad seleccionada'+'\n')
+                conteorecursos=crearlistaciudades.retornar_nodo(int(ciudadseleccionada)).ListaTipoCeldaRecursos.size
+                if conteorecursos==0:
+                    print('------------------------')
+                    print('¡ALERTA!')
+                    print('La ciudad no tiene recursos para extraer')
+                    print('------------------------')
                 elif conteorecursos==1:
                     print('\n')
                     print('Existe un único recurso a extraer')
@@ -247,65 +258,19 @@ if question1=='si':
                     print('Tipo de misión: Extracción','\n','Recurso extraido:','x',',','y','\n','Robot utlizado:', listaRobotsFighter.ultimo.nombrerobot, '(ChapinFighter- Capacidad de combate inicial:','cap_inicial',',','Capacidad de combate final'+'cap_final',')')
                     print('Resultado----->Mision realizada')
                     print('.......................................')
-
-
-#hasta aquí las modificaciones
-
-
                 elif conteorecursos>1:
-                    crearlistaciudades.retornar_nodo(int(ciudadseleccionada)).MatrizDispersa.graficarNeato('Seleccionar_Unidad_Civil')
-                    print('\n', 'Ingrese las coordenadas de la unidad civil a rescatar:')
-                    fila=input('Ingrese fila:'+'\n')
-                    columna=input('Ingrese columna:'+'\n')
+                    crearlistaciudades.retornar_nodo(int(ciudadseleccionada)).MatrizDispersa.graficarNeato('Seleccionar_Recurso_a_Extraer')
+                    print('\n', 'Ingrese las coordenadas del recurso a extraer:')
+                    filarecurso=input('Ingrese fila:'+'\n')
+                    columnarecurso=input('Ingrese columna:'+'\n')
                     print('\n', 'Ingrese las coordenadas del punto de entrada:')
                     filaentrada=input('Ingrese fila:'+'\n')
                     columnaentrada=input('Ingrese columna:'+'\n')  
-                    crearlistaciudades.retornar_nodo(int(ciudadseleccionada)).MatrizDispersa.graficarNeato('Misión_de_Rescate')
+                    crearlistaciudades.retornar_nodo(int(ciudadseleccionada)).MatrizDispersa.graficarNeato('Misión_de_Extracción')
                     print('.......................................')
-                    print('Tipo de misión: Rescate','\n','Unidad civil rescatada:',fila,',',columna,'\n','Robot utlizado:', listaRobotsRescue.retornar_NombreRobotRescate(int(retornarrobot)).nombrerobot, '(ChapinRescue)')
+                    print('Tipo de misión: Extracción','\n','Recurso Extraido:',filarecurso,',',columnarecurso,'\n','Robot utlizado:', listaRobotsFighter.retornar_NombreRobotRescate(int(retornarrobot)).nombrerobot, '(ChapinFighter- Capacidad de combate inicial:','cap_inicial',',','Capacidad de combate final'+'cap_final',')')
                     print('Resultado----->Mision realizada')
                     print('.......................................') 
-
-
-
-
-
-
-
-                crearlistaciudades.retornar_nodo(int(ciudadseleccionada)).MatrizDispersa.graficarNeato('Seleccionar_Recursos_a_Extraer')
-                print('\n','Ingrese las coordenadas de los recursos a extraer:')
-                filarecursos=input('Ingrese fila:'+'\n')
-                columnarecursos=input('Ingrese columna:'+'\n')
-                print('\n', 'Ingrese las coordenadas del punto de entrada:')
-                filaentrada=input('Ingrese fila:'+'\n')
-                columnaentrada=input('Ingrese columna:'+'\n')
-                crearlistaciudades.retornar_nodo(int(ciudadseleccionada)).MatrizDispersa.graficarNeato('Misión_Extracción_de_Recursos')
-                print('.......................................')
-                print('Tipo de misión: Extracción','\n','Recursos rescatados:',filarecursos,',',columnarecursos,'\n','Robot utlizado:', listaRobotsFighter.ultimo.nombrerobot, '(ChapinFighter)')
-                print('Resultado----->Mision realizada')
-                print('.......................................') 
-            elif listaRobotsFighter.ultimo.getid()>0:
-                print('Los robots ChapinFighter disponibles son:')
-                listaRobotsFighter.mostrar_robot()
-                retornarrobot=input('\n'+'Ingrese el número de Robot seleecionado:'+'\n')
-                print('\n','El robot que realizará la misión es:')
-                listaRobotsFighter.retornar_nodo(int(retornarrobot))
-                print('\n')
-                print('Las ciudades disponibles para completar la misión son: ')
-                crearlistaciudades.mostrar_ciudades()
-                ciudadseleccionada=input('\n'+'Ingrese el número de la cuidad seleccionada'+'\n')
-                crearlistaciudades.retornar_nodo(int(ciudadseleccionada)).MatrizDispersa.graficarNeato('Seleccionar_Unidad_Civil')
-                print('\n', 'Ingrese las coordenadas de los recursos a extraer:')
-                filarecursos=input('Ingrese fila:'+'\n')
-                columnarecursos=input('Ingrese columna:'+'\n')
-                print('\n', 'Ingrese las coordenadas del punto de entrada:')
-                filaentrada=input('Ingrese fila:'+'\n')
-                columnaentrada=input('Ingrese columna:'+'\n')  
-                crearlistaciudades.retornar_nodo(int(ciudadseleccionada)).MatrizDispersa.graficarNeato('Misión_Extracción_de_Recursos')
-                print('.......................................')
-                print('Tipo de misión: Extracción','\n','Recurso rescatado:',filarecursos,',',columnarecursos,'\n','Robot utlizado:', listaRobotsFighter.retornar_NombreRobotRescate(int(retornarrobot)).nombrerobot, '(ChapinFighter)')
-                print('Resultado----->Mision realizada')
-                print('.......................................') 
 
         print('\n')
         salir=input('¿Desea salir de la aplicación?' +'\n'+'Responda: si o no'+'\n')
