@@ -9,6 +9,7 @@ class MatrizDispersa():
     def __init__(self):
         self.filas=ListaCabecera('Fila')
         self.columnas=ListaCabecera('Columna')
+        self.id=0
 
     def insertar(self,x,y,clasificacionceldaunitaria, estado,valoracion,cant_instransitable, cant_entradas,cant_caminos, cant_recuros,cant_civil):
         nuevaceldamalla=NodoCeldaUnitariaMalla(x,y,clasificacionceldaunitaria, estado, valoracion,cant_instransitable, cant_entradas,cant_caminos, cant_recuros,cant_civil)

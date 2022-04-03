@@ -53,7 +53,7 @@ def elementTree(ruta):
                                 crearlistaciudades.retornar_nodo(contadordos).ListaTipoCeldaRecursos.insertar_tipo_celda_recursos(contadorrecursos)
                             elif celda==' ':
                                 contadorcamino+=1
-                            crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.insertar(numfilamalla,contadorseis,celda, 'none', 'none', contadorintransitable, contadorentradas,contadorcamino,contadorrecursos,contadorcivil)
+                            crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.insertar(numfilamalla,contadorseis,celda, None,None, None, None,contadorcamino,contadorrecursos,contadorcivil)
                             #crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.actualizarMilitar(1,1,100)
                             #crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.graficarNeato('prueba2')
                             contadorseis+=1
@@ -90,9 +90,6 @@ def elementTree(ruta):
 #     #print(fichero.name)
 #     elementTree('ENTRADAS/'+fichero.name)
 #     crearlistaciudades.mostrar_ciudades()
-
-# elementTree('ENTRADAS\entrada01.xml')
-# elementTree('ENTRADAS\entrada02.xml')
 
 
 
@@ -287,10 +284,14 @@ if question1=='si':
                     print('.......................................') 
 
         print('\n')
-        salir=input('¿Desea salir de la aplicación?' +'\n'+'Responda: si o no'+'\n')
+        salir=input('¿Desea intentar otra misión?' +'\n'+'Responda: si o no'+'\n')
         if salir=='si':
-            exit()
-        else:
-            contadorprocesos+=1
+           contadorprocesos+=1
+        else: 
+            salir=input('¿Desea salir de la aplicación?' +'\n'+'Responda: si o no'+'\n')
+            if salir=='si':
+                exit()
+            else: 
+                contadorprocesos+=1
 
     
