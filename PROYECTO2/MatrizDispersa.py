@@ -144,7 +144,7 @@ class MatrizDispersa():
                         posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
                     )
                 elif pivote_celda.clasificacioncelda == ' ':
-                    contenido += '\n\tnode[label=" " color="black" fillcolor="white" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
+                    contenido += '\n\tnode[label=" " color="white" fillcolor="white" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
                         posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
                     )
                 elif pivote_celda.clasificacioncelda == 'E':
@@ -232,9 +232,6 @@ class MatrizDispersa():
             print('No existe')
             return None
 
-    def dev_cant_civiles():
-        dev=NodoCeldaUnitariaMalla.getcantciviles()
-        print(dev)
 
          
     
