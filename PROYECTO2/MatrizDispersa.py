@@ -1,3 +1,4 @@
+from email.mime import image
 import os
 import webbrowser
 from ListaCabecera import ListaCabecera
@@ -93,7 +94,8 @@ class MatrizDispersa():
     edge[style = "bold"]
     node[label = "Ciudad''' +'''" fillcolor="cornsilk" pos = "-1,1!"]raiz;'''
         contenido += '''label = "{}" \nfontname="Arial" \nfontsize="16pt" \n
-                    \n'''.format('\nCeldas de Malla ChapinEyes')
+                    \n'''.format('\nCeldas de Malla ChapinEyes'+ '\n'+'\nSimbología de colores'+ '\nNegro: Intransitable'+ '\nVerde: Punto de entrada'+ '\nBlanco: Camino'+ '\nRojo: Unidad Militar'+ '\nAzul: Unidad Civil'+ '\nGris: Recurso')
+                    
 
         # --graficar nodos ENCABEZADO
         # --graficar nodos fila
@@ -148,19 +150,19 @@ class MatrizDispersa():
                         posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
                     )
                 elif pivote_celda.clasificacioncelda == 'E':
-                    contenido += '\n\tnode[label="Entrada" color="white" fillcolor="yellowgreen" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
+                    contenido += '\n\tnode[label=" " color="white" fillcolor="yellowgreen" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
                         posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
                     )
                 elif pivote_celda.clasificacioncelda == 'C':
-                    contenido += '\n\tnode[label="U. Civil" color="white" fillcolor="skyblue1" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
+                    contenido += '\n\tnode[label=" " color="white" fillcolor="skyblue1" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
                         posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
                     )
                 elif pivote_celda.clasificacioncelda == 'R':
-                    contenido += '\n\tnode[label="Recurso" color="white" fillcolor="azure3" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
+                    contenido += '\n\tnode[label=" " color="white" fillcolor="azure3" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
                         posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
                     )
                 elif pivote_celda.clasificacioncelda == 'M':
-                    contenido += '\n\tnode[label="Militar" color="white" fillcolor="indianred" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
+                    contenido += '\n\tnode[label=" " color="white" fillcolor="indianred" pos="{},-{}!" shape=box]i{}_{};'.format( #pos="{},-{}!"
                         posy_celda, posx, pivote_celda.coordenadaX, pivote_celda.coordenadaY
                     )
                 else:

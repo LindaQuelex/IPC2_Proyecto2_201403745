@@ -2,7 +2,15 @@ digraph G{
     node[shape=circle, width=0.7, height=0.7, color="white" fontname="Arial", fillcolor="white", style=filled]
     edge[style = "bold"]
     node[label = "Ciudad" fillcolor="cornsilk" pos = "-1,1!"]raiz;label = "
-Celdas de Malla ChapinEyes" 
+Celdas de Malla ChapinEyes
+
+Simbología de colores
+Negro: Intransitable
+Verde: Punto de entrada
+Blanco: Camino
+Rojo: Unidad Militar
+Azul: Unidad Civil
+Gris: Recurso" 
 fontname="Arial" 
 fontsize="16pt" 
 
