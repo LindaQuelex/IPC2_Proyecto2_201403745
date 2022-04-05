@@ -15,7 +15,7 @@ class MatrizDispersa():
         nuevaceldamalla=NodoCeldaUnitariaMalla(x,y,clasificacionceldaunitaria, estado, valoracion,cant_instransitable, cant_entradas,cant_caminos, cant_recuros,cant_civil)
         nodox=self.filas.getCabecera(x)
         nodoy=self.columnas.getCabecera(y)
-        
+        self.id+=1
         if nodox==None:
             nodox=NodoCabecera(x)
             self.filas.insertarnodocabecera(nodox)
