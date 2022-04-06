@@ -132,6 +132,7 @@ if question1=='si':
                         print('------------------------')
                         print('¡ALERTA!')
                         print('La ciudad no tiene unidades civiles para rescatar')
+                        print('Misión imposible')
                         print('------------------------')
                     elif conteociviles==1:
                         print('\n')
@@ -173,6 +174,7 @@ if question1=='si':
                         print('------------------------')
                         print('¡ALERTA!')
                         print('La ciudad no tiene unidades civiles para rescatar')
+                        print('Misión imposible')
                         print('------------------------')
                     elif conteociviles==1:
                         print('\n')
@@ -217,6 +219,7 @@ if question1=='si':
                         print('------------------------')
                         print('¡ALERTA!')
                         print('La ciudad no tiene recursos para extraer')
+                        print('Misión imposible')
                         print('------------------------')
                     elif conteorecursos==1:
                         print('\n')
@@ -259,6 +262,7 @@ if question1=='si':
                         print('------------------------')
                         print('¡ALERTA!')
                         print('La ciudad no tiene recursos para extraer')
+                        print('Misión imposible')
                         print('------------------------')
                     elif conteorecursos==1:
                         print('\n')
