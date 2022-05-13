@@ -28,7 +28,7 @@ class MatrizDispersa():
             nodox.acceso=nuevaceldamalla
 
         else:
-            if nuevaceldamalla.coordenadaY < nodox.acceso.coordenadaY:
+            if int(nuevaceldamalla.coordenadaY) < int(nodox.acceso.coordenadaY):
                 nuevaceldamalla.right=nodox.acceso
                 nodox.acceso.left=nuevaceldamalla
                 nodox.acceso=nuevaceldamalla
@@ -36,14 +36,14 @@ class MatrizDispersa():
             else: 
                 tmp=nodox.acceso
                 while tmp !=None:
-                    if nuevaceldamalla.coordenadaY< tmp.coordenadaY:
+                    if int(nuevaceldamalla.coordenadaY)<int( tmp.coordenadaY):
                         nuevaceldamalla.right=tmp
                         nuevaceldamalla.left=tmp.left
                         tmp.left.right=nuevaceldamalla
                         tmp.left=nuevaceldamalla
                         break
 
-                    elif nuevaceldamalla.coordenadaX==tmp.coordenadaX and nuevaceldamalla.coordenadaY == tmp.coordenadaY:
+                    elif int(nuevaceldamalla.coordenadaX)==int(tmp.coordenadaX) and int(nuevaceldamalla.coordenadaY) == int(tmp.coordenadaY):
                         print('Ya existe un nodo en esta posición de fila', nuevaceldamalla.coordenadaX, nuevaceldamalla.coordenadaY)
                         break;   
                          
@@ -59,7 +59,7 @@ class MatrizDispersa():
         if nodoy.acceso==None:
             nodoy.acceso=nuevaceldamalla
         else: 
-            if nuevaceldamalla.coordenadaY < nodox.acceso.coordenadaY: #esta es la línea que aparece en el repositorio
+            if int(nuevaceldamalla.coordenadaY) < int(nodox.acceso.coordenadaY): #esta es la línea que aparece en el repositorio
             #if nuevaceldamalla.coordenadaX==nodoy.acceso.coordenadaX: #esta línea es diferente al repositorio
                 nuevaceldamalla.down=nodoy.acceso
                 nodoy.acceso.up= nuevaceldamalla
@@ -67,13 +67,13 @@ class MatrizDispersa():
             else: 
                 tmp2:NodoCabecera=nodoy.acceso
                 while tmp2 != None:
-                    if nuevaceldamalla.coordenadaX<tmp2.coordenadaX:
+                    if int(nuevaceldamalla.coordenadaX)<int(tmp2.coordenadaX):
                         nuevaceldamalla.down=tmp2
                         nuevaceldamalla.up=tmp2.up
                         tmp2.up.down =nuevaceldamalla
                         tmp2.up=nuevaceldamalla
                         break
-                    elif nuevaceldamalla.coordenadaX == tmp2.coordenadaX and nuevaceldamalla.coordenadaY==tmp2.coordenadaY:
+                    elif int(nuevaceldamalla.coordenadaX) == int(tmp2.coordenadaX) and int(nuevaceldamalla.coordenadaY)==int(tmp2.coordenadaY):
                         print('Ya existe una celda de la malla en esta posición de columna',nuevaceldamalla.coordenadaX, nuevaceldamalla.coordenadaY)
                         break
                     else: 
@@ -251,6 +251,7 @@ class MatrizDispersa():
 # matriz.insertar(1,1,'*','*','*',None,None, None,None,None)
 # matriz.insertar(7,11,' ','*','*',None,None, None,None,None)
 # matriz.insertar(10,12,'*','*','*',None,None, None,None,None)
+# matriz.insertar(15,12,'*','*','*',None,None, None,None,None)
 # matriz.insertar(7,1,'M','*','*',None,None, None,None,None)
 
 

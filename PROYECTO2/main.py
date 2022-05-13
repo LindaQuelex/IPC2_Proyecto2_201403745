@@ -53,7 +53,7 @@ def elementTree(ruta):
                                 crearlistaciudades.retornar_nodo(contadordos).ListaTipoCeldaRecursos.insertar_tipo_celda_recursos(contadorrecursos)
                             elif celda==' ':
                                 contadorcamino+=1
-                            crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.insertar(numfilamalla,contadorseis,celda, None,None, None, None,contadorcamino,contadorrecursos,contadorcivil)
+                            crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.insertar(int(numfilamalla),contadorseis,celda, None,None, None, None,contadorcamino,contadorrecursos,contadorcivil)
                             #crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.actualizarMilitar(1,1,100)
                             #crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.graficarNeato('prueba2')
                             contadorseis+=1
@@ -62,7 +62,7 @@ def elementTree(ruta):
                         capacidadmilitar=nombre.text
                         filamilitar=nombre.attrib['fila']
                         columnamilitar=nombre.attrib['columna'] 
-                        crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.actualizarMilitar(filamilitar,columnamilitar,capacidadmilitar)         
+                        #crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.actualizarMilitar(filamilitar,columnamilitar,capacidadmilitar)         
                         #crearlistaciudades.retornar_nodo(contadordos).MatrizDispersa.graficarNeato('prueba')
                     contadortres+=1
                 contadordos+=1
